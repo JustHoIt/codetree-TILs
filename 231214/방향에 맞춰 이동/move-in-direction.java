@@ -23,8 +23,8 @@ public class Main {
             }
         }else{
             for(int i = 1; i <= move; i++){
-                x = x + dx[2];
-                y = y + dy[2];
+                x = x + dx[3];
+                y = y + dy[3];
             }
         }
     }
