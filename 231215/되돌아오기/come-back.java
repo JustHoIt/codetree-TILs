@@ -39,7 +39,7 @@ public class Main {
                 }
             }
         }
-        return answer;
+        return -1;
     }
 
 
