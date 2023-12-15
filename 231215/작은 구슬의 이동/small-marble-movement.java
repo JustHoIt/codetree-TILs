@@ -5,6 +5,7 @@ public class Main {
     static int[] dy = {1, 0, 0, -1};
     static int n = 0, t = 0;
     static int x = 0, y = 0;
+    static int d;
 
     public static int getDir(String a) {
         char d = a.charAt(0);
@@ -19,7 +20,7 @@ public class Main {
         }
     }
 
-    public void solution(int r, int c, int d) {
+    public void solution() {
         for (int i = 0; i < t; i++) {
             int nx = x + dx[d];
             int ny = y + dy[d];
@@ -40,14 +41,14 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         t = sc.nextInt();
-        int r = sc.nextInt();
-        int c = sc.nextInt();
+        x = sc.nextInt();
+        y = sc.nextInt();
         String a = sc.next();
-        x = r;
-        y = c;
-
-        int d = getDir(a);
-        T.solution(r, c, d);
+        d = getDir(a);
+        
+        x--;
+        y--;
+        T.solution();
 
         System.out.println((x + 1) + " " + (y + 1));
     }
