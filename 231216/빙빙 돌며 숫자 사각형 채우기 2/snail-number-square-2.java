@@ -17,12 +17,18 @@ public class Main {
                 dir = (dir + 1) % 4;
                 nx = x + dx[dir];
                 ny = y + dy[dir];
+                while (!inRange(nx, ny)){
+                    dir = (dir + 1) % 4;
+                    nx = x + dx[dir];
+                    ny = y + dy[dir];
+                }
+
             }
             x = nx;
             y = ny;
             arr[x][y] = i;
-        }
 
+        }
         for (int j = 0; j < n; j++) {
             for (int k = 0; k < m; k++) {
                 System.out.print(arr[j][k] + " ");
