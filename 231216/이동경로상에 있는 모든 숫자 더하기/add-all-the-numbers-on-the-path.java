@@ -19,8 +19,8 @@ public class Main {
 
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            int nx = x + dx[dir];
-            int ny = y + dy[dir];
+            int nx = x + dx[dir % 4];
+            int ny = y + dy[dir % 4];
             if (c == 'F') {
                 if (inRange(nx, ny)) {
                     x = nx;
@@ -35,7 +35,7 @@ public class Main {
                     }
                 } else {
                     dir++;
-                    if (dir == 3) {
+                    if (dir == 4) {
                         dir = 0;
                     }
                 }
