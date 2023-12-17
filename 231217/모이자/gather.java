@@ -2,27 +2,22 @@ import java.util.Scanner;
 
 public class Main {
     public static void solution(int n, int[] arr){
-        int minD = Integer.MAX_VALUE;
+        int minDistance = Integer.MAX_VALUE;
+        for(int i = 1; i <= n; i++){
+            int totalDistance = 0;
 
-        for(int i = 0; i < n; i++){
-            int totalD = distance(i, arr);
-            minD = Math.min(minD, totalD);
+            for(int j = 0; j < n; j++){
+                int distnace = Math.abs(i - (j + 1));
+                totalDistance += distnace * arr[j];
+            }
+
+            minDistance = Math.min(minDistance, totalDistance);
         }
 
-        System.out.println(minD);
-
+        System.out.println(minDistance);
+    
     }
 
-
-     public static int distance(int p, int[] arr){
-        int totalD = 0;
-
-        for (int i = 0; i < arr.length; i++) {
-            totalD += Math.abs(p - i - 1) * arr[i];
-        }
-
-        return totalD;
-     }
 
     public static void main(String[] args) {
         // 여기에 코드를 작성해주세요.
