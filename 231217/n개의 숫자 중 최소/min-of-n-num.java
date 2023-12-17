@@ -10,13 +10,13 @@ public class Main {
         int [] arr = new int[n];
         
 
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < n; i++){
             arr[i] = sc.nextInt();
             if(minValue > arr[i]){
                 minValue = arr[i];
             }
         }
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < n; i++){
             if(arr[i] == minValue){
                 count++;
             }
