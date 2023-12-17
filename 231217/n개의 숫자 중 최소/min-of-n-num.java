@@ -1,10 +1,14 @@
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int minValue = Integer.MAX_VALUE;
         int count = 0;
-        int [] arr = new int[10];
+        int n = sc.nextInt();
+
+        int [] arr = new int[n];
+        
 
         for(int i = 0; i < 10; i++){
             arr[i] = sc.nextInt();
