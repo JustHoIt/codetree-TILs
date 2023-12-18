@@ -9,7 +9,7 @@ public class Main {
             for (int j = 0; j < C - 2; j++) {
                 for (int k = i + 1; k < R - 1; k++) {
                     for (int l = j + 1; l < C - 1; l++) {
-                        if((arr[i][j] != arr[k][l] && arr[i][j] != arr[0][0] && arr[k][l] == arr[0][0])){
+                        if(arr[i][j] != arr[k][l] && arr[i][j] != arr[0][0] && arr[k][l] == arr[0][0] && arr[0][0] != arr[R-1][C-1]){
                             maxCnt++;
                         }
                     }
