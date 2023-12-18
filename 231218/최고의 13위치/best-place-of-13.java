@@ -14,17 +14,15 @@ public class Main {
                 }
                 if(arr[i][j+2] == 1){
                     coin++;
-                }     
-            if(coin> maxCoin){
-            maxCoin = coin;
                 }
-            }  
+                if(coin> maxCoin){
+                    maxCoin = coin;
+                }
+                coin = 0;
+            }
         }
         System.out.println(maxCoin);
-
-
-
-    } 
+    }
 
 
     public static void main(String[] args) {
@@ -39,8 +37,6 @@ public class Main {
                 arr[i][j] = sc.nextInt();
             }
         }
-
         T.solution(N, arr);
-
     }
 }
