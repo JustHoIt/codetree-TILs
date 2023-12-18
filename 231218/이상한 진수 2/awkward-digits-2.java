@@ -5,8 +5,8 @@ public class Main {
         int result = 0;
         String a = String.valueOf(s);
         char[] c = a.toCharArray();
-        if (s == 1 || s == 11 || s == 111 || s == 1111) {
-            c[a.length() -1] = '0';
+        if (a.matches("1+")) {
+            c[a.length() - 1] = '0';
             a = String.valueOf(c);
         } else {
             for (int i = 0; i < a.length(); i++) {
@@ -20,7 +20,6 @@ public class Main {
         result = Integer.parseInt(a, 2);
 
         return result;
-
     }
 
     public static void main(String[] args) {
