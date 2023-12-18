@@ -1,35 +1,33 @@
 import java.util.Scanner;
 
 public class Main {
-    public int solution(String s) {
+    public int solution(int s) {
         int result = 0;
-        if (s.length() < 4) {
-            while (true) {
-                s = 0 + s;
-                if (s.length() == 3) {
-                    s = 1 + s;
-                    break;
-                }
-            }
+        String a = String.valueOf(s);
+        if (s == 1) {
+            a = "0";
         } else {
-            char[] c = s.toCharArray();
-            for (int i = 0; i < s.length(); i++) {
+            char[] c = a.toCharArray();
+            for (int i = 0; i < a.length(); i++) {
                 if (c[i] == '0') {
                     c[i] = '1';
                     break;
                 }
             }
-            s = String.valueOf(c);
+            a = String.valueOf(c);
         }
-        result = Integer.parseInt(s, 2);
+        result = Integer.parseInt(a, 2);
 
         return result;
+
     }
 
     public static void main(String[] args) {
         Main T = new Main();
         Scanner sc = new Scanner(System.in);
-        String s = sc.next();
+        int s = sc.nextInt();
         System.out.println(T.solution(s));
+
+
     }
 }
