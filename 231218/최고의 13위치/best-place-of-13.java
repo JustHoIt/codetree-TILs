@@ -3,9 +3,9 @@ public class Main {
     public void solution(int N, int[][] arr){
         int maxCoin = Integer.MIN_VALUE;
 
-        for(int i = 0; i < N - 2; i++){
+        for(int i = 0; i < N - 3; i++){
             int coin = 0;
-            for(int j = 0; j < N - 2; j++){
+            for(int j = 0; j < N - 3; j++){
                 if(arr[i][j] == 1){
                     coin++;
                 }
