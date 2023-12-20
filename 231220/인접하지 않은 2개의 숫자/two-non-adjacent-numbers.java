@@ -2,14 +2,14 @@ import java.util.Scanner;
 
 public class Main {
 
-    public int solution(int N, int[] arr){
+    public int solution(int N, int[] arr) {
         int answer = Integer.MIN_VALUE;
 
 
-        for(int i = 0; i< N - 2; i++){
-            for(int j = i + 2; i < N; i++ ){
+        for (int i = 0; i < N - 2; i++) {
+            for (int j = i + 2; j < N; j++) {
                 int idx = arr[i] + arr[j];
-                if(answer < idx){
+                if (answer < idx) {
                     answer = idx;
                 }
             }
@@ -26,7 +26,7 @@ public class Main {
 
         int[] arr = new int[N];
 
-        for(int i = 0; i < N; i++){
+        for (int i = 0; i < N; i++) {
             arr[i] = sc.nextInt();
         }
 
