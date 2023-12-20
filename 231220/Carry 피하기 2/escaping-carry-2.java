@@ -20,6 +20,9 @@ public class Main {
                 }
             }
         }
+        if(answer < 0){
+            return -1;
+        }
         return answer;
     }
 
