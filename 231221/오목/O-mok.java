@@ -37,10 +37,15 @@ public class Main {
 
             }
         }
+        System.out.println(0);
     }
 
     public static boolean inRange(int nx, int ny) {
         return (nx >= 0 && nx < 19 & ny >= 0 && ny < 19);
+    }
+
+    private static boolean num(int a){
+        return (a >= 0 && a <= 2);
     }
 
     public static void main(String[] args) {
@@ -53,12 +58,9 @@ public class Main {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 arr[i][j] = sc.nextInt();
-                if(arr[i][j] > 0 && arr[i][j] <= 2){
-                    System.out.println(0);
-                    return;
-                }
             }
         }
-        T.solution(n, arr);
+        
+        T.solution(n,arr);
     }
 }
