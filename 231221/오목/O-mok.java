@@ -41,7 +41,7 @@ public class Main {
     }
 
     public static boolean inRange(int nx, int ny) {
-        return (nx >= 0 && nx < 19 & ny >= 0 && ny < 19);
+        return (nx >= 0 && nx < 19 && ny >= 0 && ny < 19);
     }
 
     public static void main(String[] args) {
