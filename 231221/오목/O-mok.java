@@ -44,10 +44,6 @@ public class Main {
         return (nx >= 0 && nx < 19 & ny >= 0 && ny < 19);
     }
 
-    private static boolean num(int a){
-        return (a >= 0 && a <= 2);
-    }
-
     public static void main(String[] args) {
         // 여기에 코드를 작성해주세요.
         Main T = new Main();
