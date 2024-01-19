@@ -9,7 +9,7 @@ public class Main {
             return 4;
         }
 
-        return solution(n - 1) * solution(n - 2);
+        return (solution(n - 1) * solution(n - 2) % 100);
     }
 
     public static void main(String[] args) {
@@ -17,6 +17,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
 
-        System.out.println(solution(N) % 100);
+        System.out.println(solution(N));
     }
 }
