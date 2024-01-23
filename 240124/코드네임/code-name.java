@@ -1,6 +1,4 @@
 import java.util.Scanner;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Collections;
 import java.util.ArrayList;
 
@@ -10,12 +8,13 @@ public class Main {
         Scanner sc =new Scanner(System.in);
         ArrayList<Agent> list = new ArrayList<>();
 
-        for(int i = 0; i < 4; i++){
+        for(int i = 0; i < 5; i++){
             String codename = sc.next();
             int score = sc.nextInt();
             Agent a = new Agent(codename, score);
             list.add(a);
         }
+
         Collections.sort(list);
 
         System.out.println(list.get(0).codename + " " + list.get(0).score);
