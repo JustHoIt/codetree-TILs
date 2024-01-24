@@ -34,8 +34,8 @@ class Point implements Comparable<Point>{
 
     @Override
     public int compareTo(Point o){
-        int d1 =  Math.abs(this.x + this.y);
-        int d2 =  Math.abs(o.x + o.y);
+        int d1 =  Math.abs(this.x) + Math.abs(this.y);
+        int d2 =  Math.abs(o.x) + Math.abs(o.y);
         if(d1 != d2){
             return d1 - d2;
         }
