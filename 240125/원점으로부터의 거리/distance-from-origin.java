@@ -16,8 +16,8 @@ public class Main {
         }
         Arrays.sort(points);
 
-        for(int i = 0; i < n; i++){
-            System.out.println(points[i].idx);
+        for(Point p : points){
+            System.out.println(p.idx);
         }
     }
 }
