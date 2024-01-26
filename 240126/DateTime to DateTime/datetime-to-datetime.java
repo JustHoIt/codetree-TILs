@@ -12,14 +12,13 @@ public class Main {
         int b = sc.nextInt();
         int c = sc.nextInt();
 
-        int answer = -1;
+        int answer = 0;
 
         if(((day * 24 * 60) + (hour * 60) + minute) > ((a * 24 * 60) + (b * 60) + c)){
             answer = - 1;
         }else{
             while(true){
                 if( day == a && hour == b && minute == c){
-                    answer++;
                     break;
                 }
 
