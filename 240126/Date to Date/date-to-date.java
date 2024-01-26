@@ -11,7 +11,7 @@ public class Main {
         int d2 = sc.nextInt(); 
         int answer = 1;
 
-        int[] endDays = {0, 1, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int[] endDays = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         while(true){
             if(m1 == m2 && d1 == d2){
                 break;
