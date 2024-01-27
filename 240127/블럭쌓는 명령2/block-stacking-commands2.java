@@ -14,7 +14,7 @@ public class Main {
             int b = sc.nextInt();
 
             for(int j = a; j <= b; j++){
-                s[j]++;
+                s[j-1]++;
             }
         }
 
