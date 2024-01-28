@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    public static final int maxV = 1001;
+    public static final int maxV = 1000000;
 
     public static int[] a_go = new int[maxV];
     public static int[] b_go = new int[maxV];
