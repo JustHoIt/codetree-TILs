@@ -17,8 +17,16 @@ public class Main {
         int diff = numOfDays(m2, d2) - numOfDays(m1, d1);
         int answer = diff / 7;
         int cnt = diff % 7;
-        for(int i = 0; i <= cnt+2; i++){
+        int p = 0;
+        for(int i = 0; i < 7; i++){
             if(dayOfWeek[i].equals(day)){
+                p = i;
+                break;
+            }
+        }
+
+        for(int i = 0; i <= cnt; i++){
+            if(dayOfWeek[(p + i) % 7].equals(day)){
                 answer++;
             }
         }
