@@ -4,42 +4,36 @@ public class Main {
     public static void main(String[] args) {
         // 여기에 코드를 작성해주세요.
         String[] dayOfWeek = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
-        int[] endDays = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         Scanner sc = new Scanner(System.in);
 
         int m1 = sc.nextInt();
         int d1 = sc.nextInt();
         int m2 = sc.nextInt();
         int d2 = sc.nextInt();
+
+
         String day = sc.next();
-        int cnt = 0;
-        int week = 0;
-        int days = 1;
-        int answer = 1;
-        while(true){
-            if(m1 == m2 && d1 == d2){
-                break;
-            }
-            days++;
-            d1++;
 
-            if(d1 > endDays[m1]){
-                m1++;
-                if(m1 == 13){
-                    m1 = 1;
-                }
-                d1 = 1;
-            }
-        }
-        answer += days / 7;
-        cnt = days % 7;
-
-        for(int i = 0; i < cnt; i++){
+        int diff = numOfDays(m2, d2) - numOfDays(m1, d1);
+        int answer = diff / 7;
+        int cnt = diff % 7;
+        for(int i = 0; i <= cnt+2; i++){
             if(dayOfWeek[i].equals(day)){
                 answer++;
-                break;
             }
         }
         System.out.println(answer);
+    }
+
+    public static int numOfDays(int m, int d){
+        int[] endDays = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int totalDays = 0;
+
+        for(int i = 1; i < m; i++){
+            totalDays += endDays[i];
+        }
+        totalDays += d;
+
+        return totalDays;
     }
 }
