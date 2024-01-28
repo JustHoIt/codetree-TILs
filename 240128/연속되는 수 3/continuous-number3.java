@@ -5,7 +5,7 @@ public class Main {
         // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
-        int answer = 0, cnt = 0;
+        int answer = 0, cnt = 1;
 
         int [] arr = new int[N];
         for(int i = 0; i < N; i++){
@@ -15,7 +15,7 @@ public class Main {
 
         for(int i = 1; i < N; i++){
             if(i  >=  1 && arr[i] * arr[i - 1] > 0){
-                cnt += 1;
+                cnt ++;
             }else{
                 cnt = 1;
             }
