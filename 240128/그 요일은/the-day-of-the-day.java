@@ -15,7 +15,7 @@ public class Main {
         int cnt = 0;
         int week = 0;
         int days = 1;
-        int answer = 0;
+        int answer = 1;
         while(true){
             if(m1 == m2 && d1 == d2){
                 break;
@@ -34,7 +34,7 @@ public class Main {
         answer += days / 7;
         cnt = days % 7;
 
-        for(int i = 0; i <= cnt; i++){
+        for(int i = 0; i < cnt; i++){
             if(dayOfWeek[i].equals(day)){
                 answer++;
                 break;
