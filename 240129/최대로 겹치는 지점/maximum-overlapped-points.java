@@ -13,7 +13,7 @@ public class Main {
             int b = sc.nextInt();
 
             for(int j = a; j < b; j++){
-                line[j]++;
+                line[j-1]++;
             }
         }
         for(int i = 0; i < line.length; i++){
