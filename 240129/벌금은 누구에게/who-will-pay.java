@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
+        int answer = -1;
         int N = sc.nextInt();
         int K = sc.nextInt();
         int M = sc.nextInt();
@@ -15,8 +16,11 @@ public class Main {
             student[num-1]++;
 
             if(student[num-1] >= M){
-                System.out.println(num);
+                answer = num;
+                break;
             }
         } 
+
+        System.out.println(answer);
     }
 }
