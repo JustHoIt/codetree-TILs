@@ -22,6 +22,7 @@ public class Main {
                 }
             }
         }
+        
         for (int i = 0; i <= MAX; i++) {
             for (int j = 0; j <= MAX; j++) {
                 if (checked[i][j] >= 1) {
