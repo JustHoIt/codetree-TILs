@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    static int MAX_VALUE = 100000000;
+    static int MAX_VALUE = 10000000;
     static char[] line = new char[MAX_VALUE + 1];
 
     public static void main(String[] args) {
