@@ -1,61 +1,52 @@
 import java.util.Scanner;
 
 public class Main {
-    static int [] developers = new int[5];
-    static int [] tmp = new int[5];
+    static int N = 5;
+    static int [] developers = new int[N];
     static int total = 0;
-    public static void sort(int start, int end){
-        if (start < end) {
-            int mid = (start + end) / 2;
-            sort(start, mid);
-            sort(mid + 1, end);
 
-            int p = start;
-            int q = mid + 1;
-            int idx = p;
+    public static int getDiff(int i, int j, int k){
+        int sum1 = developers[i] + developers[j];
+        int sum2 = developers[k];
+        int sum3 = total - (sum1 + sum2);
 
-            while (p <= mid || q <= end) {
-                if (q > end || (p <= mid && developers[p] < developers[q])) {
-                    tmp[idx++] = developers[p++];
-                } else {
-                    tmp[idx++] = developers[q++];
-                }
-            }
-
-            for (int i = start; i <= end; i++) {
-                developers[i] = tmp[i];
-            }
-
+        if(sum1 == sum2 || sum2 == sum3 || sum1 == sum3){
+            return total;
         }
-        
+        int diff = Math.abs(sum1 - sum2);
+
+        diff = Math.max(diff,Math.abs(sum2 - sum3));
+        diff = Math.max(diff,Math.abs(sum1 - sum3));
+
+        return diff;
     }
 
     public static void main(String[] args) {
         // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
 
-        int [] developers = new int[5];
-
-        for(int i = 0; i < 5; i++){
+        for(int i = 0; i < N; i++){
             developers[i] = sc.nextInt();
             total += developers[i];
         }
-        sort(0,4);
 
-        int teamA = developers[0] + developers[2];
-        int teamB = developers[1] + developers[3];
-        int teamC = developers[4];
+        int minDiff = Integer.MAX_VALUE;
 
-        int teamMin = Math.min(teamA, Math.min(teamB, teamC));
-        int teamMax = Math.max(teamA, Math.min(teamB, teamC));
-
-        if(teamMax != teamMin){
-            System.out.println(Math.abs(teamMax - teamMin));
-        }else{
-            System.out.println("-1");
+        for(int i = 0; i < N; i++){
+            for(int j = i + 1; j < N; j++){
+                for(int k = 0; k < N; k++){
+                    if(k == i || k == j){
+                        continue;
+                    }
+                    minDiff = Math.min(minDiff, getDiff(i, j, k));
+                }
+            }
         }
 
-        
-
+        if(minDiff > 0){
+            System.out.println(minDiff);
+        }else {
+            System.out.println(-1);
+        }
     }
 }
