@@ -15,7 +15,7 @@
 |[Novice Mid / 시뮬레이션 II / 배열 기록](https://www.codetree.ai/missions?missionId=5)|[[연습]선두를 지켜라](https://www.codetree.ai/missions/5/problems/keep-the-lead)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/JustHoIt/codetree-TILs/blob/main/240215/%EC%84%A0%EB%91%90%EB%A5%BC%20%EC%A7%80%EC%BC%9C%EB%9D%BC/keep-the-lead.java)|
 |[Novice Mid / 시뮬레이션 II / 배열 기록](https://www.codetree.ai/missions?missionId=5)|[[테스트]선두를 지켜라 3](https://www.codetree.ai/missions/5/problems/keep-the-lead-3)|![보통][medium]|![Passed][passed]|[링크](https://github.com/JustHoIt/codetree-TILs/blob/main/240215/%EC%84%A0%EB%91%90%EB%A5%BC%20%EC%A7%80%EC%BC%9C%EB%9D%BC%203/keep-the-lead-3.java)|
 |[Novice Mid / 완전탐색 I / 구간 단위로 완전탐색](https://www.codetree.ai/missions?missionId=5)|[[개념]구간 중 최대 합](https://www.codetree.ai/missions/5/problems/max-sum-of-subarray)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/JustHoIt/codetree-TILs/blob/main/240215/%EA%B5%AC%EA%B0%84%20%EC%A4%91%20%EC%B5%9C%EB%8C%80%20%ED%95%A9/max-sum-of-subarray.java)|
-|[Novice Mid / 완전탐색 I / 구간 단위로 완전탐색](https://www.codetree.ai/missions?missionId=5)|[[개념]G or H 3](https://www.codetree.ai/missions/5/problems/G-or-H-3)|![쉬움][easy]|![Failed][failed]|[링크](https://github.com/JustHoIt/codetree-TILs/blob/main/240215/G%20or%20H%203/G-or-H-3.java)|
+|[Novice Mid / 완전탐색 I / 구간 단위로 완전탐색](https://www.codetree.ai/missions?missionId=5)|[[개념]G or H 3](https://www.codetree.ai/missions/5/problems/G-or-H-3)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/JustHoIt/codetree-TILs/blob/main/240215/G%20or%20H%203/G-or-H-3.java)|
 
 
 * 획득 경험치: 해설을 보지 않고 푼 문제에 한해 최초 1회 경험치를 획득하실 수 있습니다.
