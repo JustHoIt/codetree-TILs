@@ -6,31 +6,28 @@ public class Main {
         // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int [] x = new int[n];
-        int [] y = new int[n];
+        int [][] coordinate = new int[n][2];
 
         for(int i = 0; i < n; i++){
-            x[i] = sc.nextInt() + OFFSET;
-            y[i] = sc.nextInt() + OFFSET;
+            coordinate[i][0] = sc.nextInt() + OFFSET;
+            coordinate[i][1] = sc.nextInt() + OFFSET;
         }
 
-        int maxTriangle =Integer.MIN_VALUE;
-        for(int i = 0; i < n; i++){
-            int minX = Integer.MAX_VALUE;
-            int minY = Integer.MAX_VALUE;
-            int maxX = Integer.MIN_VALUE;
-            int maxY = Integer.MIN_VALUE;
-            for(int j = 0; j < n; j++){
-                if(i != j){
-                    minX = Math.min(minX, x[j]);
-                    minY = Math.min(minY, y[j]);
-                    maxX = Math.max(maxX, x[j]);
-                    maxY = Math.max(maxY, y[j]);
+        int maxSize =Integer.MIN_VALUE;
+        for(int i = 0; i < n - 2; i++){
+            for(int j = i + 1; j < n - 1; j++){
+                for(int k = j + 1; k < n; k++){
+                    int size = 0;
+                    if((coordinate[i][0] == coordinate[j][0] || coordinate[j][0] == coordinate[k][0] ||coordinate[i][0] == coordinate[k][0]) &&
+                    (coordinate[i][1] == coordinate[j][1] || coordinate[j][1] == coordinate[k][1] ||coordinate[i][1] == coordinate[k][1])){
+                    int a = coordinate[i][0] * coordinate[j][1] + coordinate[j][0] * coordinate[k][1] + coordinate[k][0] * coordinate[i][1];
+                    int b = coordinate[j][0] * coordinate[i][1] + coordinate[k][0] * coordinate[j][1] + coordinate[i][0] * coordinate[k][1];
+                    size = Math.abs(a - b);
+                    maxSize = Math.max(maxSize, size);
+                    }
                 }
             }
-            int triangle = (maxX - minX) * (maxY - minY);
-            maxTriangle = Math.max(maxTriangle, triangle);
         }
-        System.out.println(maxTriangle);
+        System.out.println(maxSize);
     }
 }
