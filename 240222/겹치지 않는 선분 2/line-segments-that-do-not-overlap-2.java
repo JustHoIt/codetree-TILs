@@ -18,7 +18,7 @@ public class Main {
         }
 
         Arrays.sort(arr, Comparator.comparingInt((int[] o) -> o[0])); //배열을 x값으로 오름차순 정렬
-        
+
         int cnt = 0;
         for (int i = 0; i < n; i++) {
             if (solution(i)) {
@@ -31,22 +31,33 @@ public class Main {
     public static boolean solution(int i) {
         boolean answer = true;
         if (i > 0 && i < n - 1) {
-            if (arr[i][1] >= arr[i + 1][1]) {
-                answer = false;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i][1] >= arr[j][1]) {
+                    answer = false;
+                    break;
+                }
             }
-            if (arr[i][1] <= arr[i - 1][1]) {
-                answer = false;
+            for (int j = i - 1; j >= 0; j-- ){
+                if (arr[i][1] < arr[j][1]) {
+                    answer = false;
+                    break;
+                }
             }
         } else if (i == 0) { //i가 0일때
-            if (arr[i][1] >= arr[i + 1][1]) {
-                answer = false;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i][1] >= arr[j][1]) {
+                    answer = false;
+                    break;
+                }
             }
         } else if (i == n - 1) { //1가 배열의 마지막 값
-            if (arr[i][1] <= arr[i - 1][1]) {
-                answer = false;
+            for (int j = i - 1; j >= 0; j-- ){
+                if (arr[i][1] < arr[j][1]) {
+                    answer = false;
+                    break;
+                }
             }
         }
-
         return answer;
     }
 }
