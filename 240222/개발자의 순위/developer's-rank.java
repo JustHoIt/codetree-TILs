@@ -25,7 +25,7 @@ public class Main {
 
         int cnt = 0;
         for (int i = 1; i <= N; i++) {
-            for (int j = 1; j < N; j++) {
+            for (int j = 1; j <= N; j++) {
                 if (a[i][j] == K) {
                     cnt++;
                 }
