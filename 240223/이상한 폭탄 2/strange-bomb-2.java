@@ -16,9 +16,9 @@ public class Main {
 
         int maxNum = -1;
 
-        for (int i = 0; i < N - K; i++) {
+        for (int i = 0; i <= N - K; i++) {
             for (int j = i + 1; j <= i + K; j++) {
-                if (bombs[i] == bombs[j]) {
+                if (j < N && bombs[i] == bombs[j]) {
                     maxNum = Math.max(maxNum, bombs[j]);
                 }
             }
