@@ -15,36 +15,31 @@ public class Main {
             for (int j = 0; j < s.length(); j++) {
                 c[j] = s.charAt(j) - '0';
             }
+            int p = s.length() - 1;
+            boolean palindromeYn = true;
+            
+            if (s.length() / 2 == 0) { // i 가 짝수
 
-            // 짝수자리의 수일 경우
-            if (s.length() / 2 == 0) {
-                boolean palindromeYn = false;
-                for (int j = 0; j < s.length(); j++) {
-                    int p = s.length() - 1;
-                    if (c[j] == c[p]) {
-                        palindromeYn = true;
-                        p--;
-                    } else {
+                for (int j = 0; j < s.length() / 2; j++) {
+                    if (c[j] != c[p]) {
+                        palindromeYn = false;
                         break;
+                    } else {
+                        p--;
                     }
                 }
-                if (palindromeYn) {
-                    cnt++;
-                }
-            }else{
-                boolean palindromeYn = false;
-                for (int j = 0; j < s.length() -1; j++) {
-                    int p = s.length() - 1;
-                    if (c[j] == c[p]) {
-                        palindromeYn = true;
-                        p--;
-                    } else {
+            } else { // i가 홀수
+                for (int j = 0; j <= s.length() / 2; j++) {
+                    if (c[j] != c[p]) {
+                        palindromeYn = false;
                         break;
+                    }else{
+                        p--;
                     }
                 }
-                if (palindromeYn) {
-                    cnt++;
-                }
+            }
+            if (palindromeYn) {
+                cnt++;
             }
         }
         System.out.println(cnt);
