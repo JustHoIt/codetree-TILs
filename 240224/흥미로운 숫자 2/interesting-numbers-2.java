@@ -19,12 +19,16 @@ public class Main {
                 numCnt[a]++;
             }
             int soloNum = 0;
+            int groupNum = 0;
             for (int j = 0; j < numCnt.length; j++) {
                 if (numCnt[j] == 1) {
                     soloNum++;
                 }
+                if (numCnt[j] > 1){
+                    groupNum++;
+                }
             }
-            if (soloNum == 1) {
+            if (soloNum == 1 && groupNum == 1) {
                 cnt++;
             }
         }
