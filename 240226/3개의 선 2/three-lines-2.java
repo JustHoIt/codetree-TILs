@@ -2,49 +2,54 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // 여기에 코드를 작성해주세요.
+        final int MAX_X = 10;
 
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        int n = sc.nextInt();
-        int[][] arr = new int[n][2];
+        int n = scanner.nextInt();
+        int[][] points = new int[n][2];
 
         for (int i = 0; i < n; i++) {
-            arr[i][0] = sc.nextInt();
-            arr[i][1] = sc.nextInt();
+            points[i][0] = scanner.nextInt();
+            points[i][1] = scanner.nextInt();
         }
 
-        int result = 0;
-
-        for (int i = 0; i <= 10; i++) {
-            for (int j = i; j <= 10; j++) {
-                for (int k = 0; k <= 10; k++) {
-                    for (int l = k; l <=  10; l++) {
-                        boolean cover = true;
-                        for (int[] a : arr) {
-                            if (!(i <= a[0] && a[0] <= j && k <= a[1] && a[1] <= l)) {
-                                cover = false;
-                                break;
-                            }
-                        }
-                        if (cover) {
-                            result = 1;
-                            break;
+        for (int i = 0; i <= MAX_X; i++) {
+            for (int j = 0; j <= MAX_X; j++) {
+                for (int k = 0; k <= MAX_X; k++) {
+                    String[] combs = {"xxx", "xxy", "xyx", "yxx", "yyy"};
+                    for (String comb : combs) {
+                        if (isPossible(comb, new int[]{i, j, k}, points)) {
+                            System.out.println(1);
+                            System.exit(0);
                         }
                     }
-                    if(result == 1){
-                        break;
-                    }
                 }
-                if(result == 1){
-                    break;
-                }
-
-            }
-            if(result == 1){
-                break;
             }
         }
-        System.out.println(result);
+
+        System.out.println(0);
+    }
+
+    private static boolean isPossible(String comb, int[] vals, int[][] points) {
+        for (int[] point : points) {
+            boolean passed = false;
+            for (int i = 0; i < comb.length(); i++) {
+                char c = comb.charAt(i);
+                int val = vals[i];
+                int x = point[0];
+                int y = point[1];
+
+                if ((c == 'x' && x == val) || (c == 'y' && y == val)) {
+                    passed = true;
+                }
+            }
+
+            if (!passed) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
