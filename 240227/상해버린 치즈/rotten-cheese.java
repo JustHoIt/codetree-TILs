@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -13,43 +10,45 @@ public class Main {
         int[][] sickRecords = new int[S][2]; //아픈 기록
         int[] cheeseCond = new int[M]; // 치즈 상태
         int[] personCond = new int[N]; // 사람 상태
-
         for (int i = 0; i < D; i++) {
-            eatenRecords[i][0] = sc.nextInt();
-            eatenRecords[i][1] = sc.nextInt();
+            eatenRecords[i][0] = sc.nextInt() - 1;
+            eatenRecords[i][1] = sc.nextInt() - 1;
             eatenRecords[i][2] = sc.nextInt();
         }
-
         for (int i = 0; i < S; i++) {
-            sickRecords[i][0] = sc.nextInt();
+            sickRecords[i][0] = sc.nextInt() - 1;
             sickRecords[i][1] = sc.nextInt();
         }
-
-
-        for (int i = 0; i < S; i++) {
-            for (int j = 0; j < D; j++) {
-                if (eatenRecords[j][2] < sickRecords[i][1] && eatenRecords[j][0] == sickRecords[i][0]) {
-                    // 아픈 시간 보다 빠르고 아픈 사람이 동일 하다면
-                    cheeseCond[eatenRecords[j][1] - 1]++; // 해당하는 치즈번호 + 1 해주기
+        for (int i = 0; i < M; i++) {
+            boolean spoilsYn = true;
+            for (int j = 0; j < S; j++) {
+                boolean flag = false;
+                for (int k = 0; k < D; k++) {
+                    if (eatenRecords[k][0] == sickRecords[j][0] && eatenRecords[k][2] < sickRecords[j][1]) {
+                        flag = true;
+                        break;
+                    }
                 }
+                if (!flag) {
+                    spoilsYn = false;
+                    break;
+                }
+            }
+            if (spoilsYn) {
+                cheeseCond[i] = 1;
+            }
+        }
+        for (int i = 0; i < D; i++) {
+            if (cheeseCond[eatenRecords[i][1]] == 1 && eatenRecords[i][2] < 101) {
+                personCond[eatenRecords[i][0]] = 1;
             }
         }
         int cnt = 0;
-        for(int i = 0; i < cheeseCond.length; i++){
-            for(int j = 0; j < D; j++){
-                if(cheeseCond[i] == S){
-                    if(i == eatenRecords[j][1]){
-                        personCond[eatenRecords[j][0] - 1]++; // 해당 하는 사람 + 1해주기
-                    }
-                }
-            }
-        }
-        for(int i = 0; i < personCond.length; i++){
-            if(personCond[i] >= 1){
+        for (int i = 0; i < N; i++) {
+            if (personCond[i] == 1) {
                 cnt++;
             }
         }
-        
         System.out.println(cnt);
     }
 }
