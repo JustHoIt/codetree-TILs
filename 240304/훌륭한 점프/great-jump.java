@@ -27,7 +27,7 @@ public class Main {
         for(int i = 0; i < n; i++){
             arr[i] = sc.nextInt();   
         }
-        int left = 1, right = 100;
+        int left = arr[0], right = n - 1;
         int minMax = 100;
 
         while(left <= right) {
