@@ -1,36 +1,45 @@
 import java.util.Scanner;
 
 public class Main {
-    static int n, k;
-    static int[] array;
-    static int answer = Integer.MAX_VALUE;
+    public static int n, k;
+    public static int[] arr;
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static boolean isPossible(int maxVal) {
+        int lastPos = 0;
 
-        n = scanner.nextInt();
-        k = scanner.nextInt();
-        array = new int[n + 1];
-
-        for (int i = 1; i <= n; i++) {
-            array[i] = scanner.nextInt();
-        }
-
-        search(1, array[1]);
-
-        System.out.println(answer);
-    }
-
-    static void search(int index, int max) {
-        if (index == n) {
-            answer = Math.min(answer, max);
-            return;
-        }
-
-        for (int i = 1; i <= k; i++) {
-            if (index + i <= n) {
-                search(index + i, Math.max(max, array[index + i]));
+        for(int i = 0; i < n; i++) {
+            if(arr[i] <= maxVal) {
+                if(i - lastPos > k) return false;
+                lastPos = i;
             }
         }
+
+        return (n - 1 - lastPos <= k);
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        k = sc.nextInt();
+        arr = new int[n];
+
+        for(int i = 0; i < n; i++){
+            arr[i] = sc.nextInt();   
+        }
+        int left = 1, right = 100;
+        int minMax = 100;
+
+        while(left <= right) {
+            int mid = (left + right) / 2;
+            if(isPossible(mid)) {
+                minMax = Math.min(minMax, mid);
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+
+        System.out.println(minMax);
     }
 }
