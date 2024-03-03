@@ -1,47 +1,36 @@
 import java.util.Scanner;
 
 public class Main {
-    public static int n, k;
-    public static int[] arr;
+    static int n, k;
+    static int[] arr;
 
-    public static boolean isPossible(int maxVal) {
-        int lastPos = 0;
-
-        for(int i = 0; i < n; i++) {
-            if(arr[i] <= maxVal) {
-                if(i - lastPos > k){
+    public static boolean isPossible(int a) {
+        int idx = 0;
+        for (int i = 1; i < n; i++) {
+            if (arr[i] <= a) {
+                if(i - idx > k){
                     return false;
-                } 
-                lastPos = i;
+                }
+                idx = i;
             }
         }
-
-        return (n - 1 - lastPos <= k);
+        return true;
     }
 
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        k = sc.nextInt();
+        n = sc.nextInt();  // 5
+        k = sc.nextInt();  // 2
         arr = new int[n];
-
-        for(int i = 0; i < n; i++){
-            arr[i] = sc.nextInt();   
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt(); // [2, 3, 5, 4, 1]
         }
-        int left = arr[0], right = 100;
-        int minMax = right;
 
-        while(left <= right) {
-            int mid = (left + right) / 2;
-            if(isPossible(mid)) {
-                minMax = Math.min(minMax, mid);
-                right = mid - 1;
-            } else {
-                left = mid + 1;
+        for (int i = Math.max(arr[0], arr[n - 1]); i <= 100 ; i++) {
+            if (isPossible(i)) {
+                System.out.println(i);
+                break;
             }
         }
-
-        System.out.println(minMax);
     }
 }
