@@ -9,7 +9,9 @@ public class Main {
 
         for(int i = 0; i < n; i++) {
             if(arr[i] <= maxVal) {
-                if(i - lastPos > k) return false;
+                if(i - lastPos > k){
+                    return false;
+                } 
                 lastPos = i;
             }
         }
@@ -27,8 +29,8 @@ public class Main {
         for(int i = 0; i < n; i++){
             arr[i] = sc.nextInt();   
         }
-        int left = arr[0], right = n - 1;
-        int minMax = 100;
+        int left = arr[0], right = 100;
+        int minMax = right;
 
         while(left <= right) {
             int mid = (left + right) / 2;
