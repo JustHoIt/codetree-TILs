@@ -12,14 +12,13 @@ public class Main {
         }
 
         int max = Integer.MIN_VALUE;
-        int cnt = 0;
         for (int i = 0; i < n; i++) {
             int sum = arr[i];
             int loc = arr[i];
+            int cnt = 1;
             for (int j = loc; cnt < m; cnt++) {
                 sum += arr[j - 1];
                 j = arr[j - 1];
-                cnt++;
             }
             max = Math.max(sum, max);
         }
