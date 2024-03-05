@@ -22,15 +22,14 @@ public class Main {
             }
         }
 
-        for(int i = arr[2][0]; i <= arr[2][0]; i++){
-            for(int j  = arr[3][1]; j <= arr[3][1]; j++){
+        for(int i = arr[2][0]; i <= arr[3][0]; i++){
+            for(int j  = arr[2][1]; j <= arr[3][1]; j++){
                 if(coordinate[i][j] == 1){
                     result = true;
                     break;
                 }
             }
         }
-
 
         if(result){
             System.out.println("overlapping");
