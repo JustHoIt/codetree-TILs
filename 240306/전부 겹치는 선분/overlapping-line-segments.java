@@ -14,12 +14,12 @@ public class Main {
             arr[i][0] = sc.nextInt();
             arr[i][1] = sc.nextInt();
             for(int j = arr[i][0]; j <= arr[i][1]; j++){
-                line[j] += (i + 1);
+                line[j] += 1;
             }
         }
 
         for(int i = 0; i < MAX; i++){
-            if(line[i] == 6){
+            if(line[i] == n){
                 result = true;
                 break;
             }
