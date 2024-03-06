@@ -18,16 +18,24 @@ public class Main {
 
         Arrays.fill(checks, false);
 
+        // 메시지 보낸 이후 읽은 사람을 읽음 처리 하기
         for (int i = p; i < m; i++) {
             char c = messages[i].sender.charAt(0);
             checks[c - 'A'] = true;
-            if (i > 2) {
-                if (messages[i].view == messages[i - 1].view) {
-                    char c2 = messages[i - 1].sender.charAt(0);
-                    checks[(c2 - 'A')] = true;
-                }
-            }
         }
+
+        //보내기 전 view 수가 같다면 읽음 처리 하기
+        int previousView = messages[p].view;
+        for (int i = p - 1; i >= 0; i--) {
+            if (messages[i].view != previousView) {
+                break;
+            }
+            char c = messages[i].sender.charAt(0);
+            checks[c - 'A'] = true;
+        }
+
+
+
         for (int i = 0; i < n; i++) {
             char c = (char) (i + 'A');
         }
