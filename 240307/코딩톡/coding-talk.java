@@ -21,6 +21,12 @@ public class Main {
         for (int i = p; i < m; i++) {
             char c = messages[i].sender.charAt(0);
             checks[c - 'A'] = true;
+            if (i > 2) {
+                if (messages[i].view == messages[i - 1].view) {
+                    char c2 = messages[i - 1].sender.charAt(0);
+                    checks[(c2 - 'A')] = true;
+                }
+            }
         }
         for (int i = 0; i < n; i++) {
             char c = (char) (i + 'A');
