@@ -9,8 +9,8 @@ public class Main {
         int m = sc.nextInt(); // 메시지 수
         int p = sc.nextInt() - 1; // 메시지 번호
         boolean[] checks = new boolean[27]; //알파벳 A ~ Z 갯수
-        Message[] messages = new Message[n];
-        for (int i = 0; i < n; i++) {
+        Message[] messages = new Message[m];
+        for (int i = 0; i < m; i++) {
             String sender = sc.next();
             int view = sc.nextInt();
             messages[i] = new Message(sender, view);
