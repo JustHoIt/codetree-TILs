@@ -8,7 +8,7 @@ public class Main {
         int n = sc.nextInt();
 
         int [][] pigeons = new int[n][2];
-        int [] eWires = new int[n];
+        int [] eWires = new int[11];
         
         Arrays.fill(eWires, 2);
 
