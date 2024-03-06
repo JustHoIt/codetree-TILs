@@ -18,7 +18,6 @@ public class Main {
 
         Arrays.fill(checks, false);
 
-        checks[p - 1] = true;
         for (int i = p; i < m; i++) {
             char c = messages[i].sender.charAt(0);
             checks[c - 'A'] = true;
@@ -26,12 +25,15 @@ public class Main {
         for (int i = 0; i < n; i++) {
             char c = (char) (i + 'A');
         }
-
-        for (int i = 0; i < n; i++) {
-            if (!checks[i]) {
-                char c = (char) (i + 'A');
-                System.out.print(c + " ");
+        if (messages[p].view != 0) {
+            for (int i = 0; i < n; i++) {
+                if (!checks[i]) {
+                    char c = (char) (i + 'A');
+                    System.out.print(c + " ");
+                }
             }
+        } else {
+            System.out.println();
         }
     }
 }
