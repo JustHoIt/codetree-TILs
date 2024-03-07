@@ -1,26 +1,27 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
-        int X = sc.nextInt();
-        System.out.println(minTime(X));
-    }
+        int x = sc.nextInt();
+        int time = 0;
+        int speed = 1;
+        int distance = 0;
 
-    static int minTime(int X) {
-        int[] dp = new int[X+1];
-        Arrays.fill(dp, Integer.MAX_VALUE);
-        dp[0] = 0; dp[1] = 1;
-        for (int i = 2; i <= X; i++) {
-            for (int j = 1; j*j <= i; j++) {
-                if (i - j*j >= j) {
-                    dp[i] = Math.min(dp[i], dp[i-j*j] + j*2);
-                } else {
-                    dp[i] = Math.min(dp[i], dp[i-j*j] + j*2 -1);
-                }
+        while (distance < x) {
+            time++;
+            distance += speed;
+
+            if(x - distance >= (speed + 1) * (speed + 2) / 2){
+                speed++;
+            }else if(x - distance >= speed * (speed + 1) / 2){
+                speed = speed;
+            }else{
+                speed--;
             }
         }
-        return dp[X];
+
+        System.out.println(time);
     }
 }
