@@ -31,7 +31,7 @@ public class Main {
                 cnt++;
             } else {
                 int tmp = arr.get(1);
-                arr.set(1, tmp - 1);
+                arr.set(1, tmp - 2);
                 arr.set(2, tmp);
                 cnt++;
             }
