@@ -8,6 +8,7 @@ public class Main {
         for(int i = 0; i < 3; i++){
             arr[i] = sc.nextInt();
         }
-        System.out.pirntln(2);
+
+        System.out.println(2);
     }
 }
