@@ -21,10 +21,14 @@ public class Main {
         int cnt = 0;
 
         for (int i = 0; i < n; i++) {
+            int p = arr.get(i).point;
+            if(p == 0){
+                continue;
+            }
             if(arr.get(i).user.equals("A")){
-                aPoint += arr.get(i).point;
+                aPoint += p;
             }else{
-                bPoint += arr.get(i).point;
+                bPoint += p;
             }
 
             if(aPoint > bPoint){
