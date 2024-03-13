@@ -51,3 +51,13 @@ public class Main {
         System.out.println(cnt);
     }
 }
+
+class Game {
+    String user;
+    int point;
+
+    Game(String user, int point) {
+        this.user = user;
+        this.point = point;
+    }
+}
