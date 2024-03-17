@@ -23,8 +23,19 @@ public class Main {
         }
 
         int cnt = 0;
-        
+
         for (int i = 0; i < n; i++) {
+            boolean isSorted = true;
+            for (int j = 1; j < nums.size(); j++) {
+                if (nums.get(j) < nums.get(j - 1)) {
+                    isSorted = false;
+                    break;
+                }
+            }
+            if (isSorted) {
+                break;
+            }
+
             for (int j = n - 1; j >= index; j--) {
                 if (nums.get(0) > nums.get(j)) {
                     nums.add(j + 1, nums.get(0));
@@ -39,17 +50,6 @@ public class Main {
                     index = nums.indexOf(value);
                     break;
                 }
-            }
-
-            boolean isSorted = true;
-            for (int j = 1; j < nums.size(); j++) {
-                if (nums.get(j) < nums.get(j - 1)) {
-                    isSorted = false;
-                    break;
-                }
-            }
-            if (isSorted) {
-                break;
             }
         }
         System.out.println(cnt);
