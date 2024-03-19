@@ -11,7 +11,10 @@ public class Main {
                 coordinate[i][j] = sc.nextInt();
             }
         }
-        
-        System.out.println(Math.abs((coordinate[1][0] - coordinate[0][3]) * (coordinate[0][0] - coordinate[1][3])));
+        int x1 = Math.min(coordinate[0][0], Math.min(coordinate[0][2], Math.min(coordinate[1][0], coordinate[1][2])));
+        int y1 = Math.min(coordinate[0][1], Math.min(coordinate[0][3], Math.min(coordinate[1][1], coordinate[1][3])));
+        int x2 = Math.max(coordinate[0][0], Math.max(coordinate[0][2], Math.max(coordinate[1][0], coordinate[1][2])));
+        int y2 = Math.max(coordinate[0][1], Math.max(coordinate[0][3], Math.max(coordinate[1][1], coordinate[1][3])));
+        System.out.println((x2 - x1) * (y2 - y1));
     }
 }
