@@ -13,7 +13,10 @@ public class Main {
         }
         double x1 = Math.min(coordinate[0][0], Math.min(coordinate[0][2], Math.min(coordinate[1][0], coordinate[1][2])));
         double x2 = Math.max(coordinate[0][0], Math.max(coordinate[0][2], Math.max(coordinate[1][0], coordinate[1][2])));
+        double y1 = Math.min(coordinate[0][1], Math.min(coordinate[0][3], Math.min(coordinate[1][1], coordinate[1][3])));
+        double y2 = Math.max(coordinate[0][1], Math.max(coordinate[0][3], Math.max(coordinate[1][1], coordinate[1][3])));
+        int result = (int) Math.max(Math.pow(x2 - x1, 2), Math.pow(y2 - y1, 2));
 
-        System.out.println((int)(Math.pow(x2 - x1, 2)));
+        System.out.println(result);
     }
 }
