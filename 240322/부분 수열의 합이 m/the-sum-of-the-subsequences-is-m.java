@@ -24,11 +24,6 @@ public class Main {
 
         initialize();
 
-        for(int i = 0 ; i < dp.length; i++){
-            System.out.print(dp[i] + " ");
-        }
-        System.out.println();
-
         for (int i = 1; i <= n; i++) {
             for (int j = m; j >= 1; j--) {
                 if (j >= coins[i]) {
@@ -39,12 +34,6 @@ public class Main {
                 }
             }
         }
-        for(int i = 0 ; i < dp.length; i++){
-            System.out.print(dp[i] + " ");
-        }
-        System.out.println();
-
-
         int ans = dp[m];
 
         if(ans == INT_MAX){
