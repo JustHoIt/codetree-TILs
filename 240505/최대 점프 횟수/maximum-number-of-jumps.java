@@ -19,12 +19,20 @@ public class Main {
 
         for(int i = 1; i < n; i++){
             for(int j = 0; j < i; j++){
-                if(j + arr[j] >= i && dp[j] != Integer.MIN_VALUE){
+                if(j + arr[j] >= i){
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
         }
-
+        
+        if(dp[n - 1] < 0){
+            int max = 0;
+            for(int i = 0; i < n; i++){
+                max = Math.max(dp[i], max);
+            }
+            dp[n - 1] = max;
+        }
+        
         System.out.println(dp[n - 1]);
     }
 }
