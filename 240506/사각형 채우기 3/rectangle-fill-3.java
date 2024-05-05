@@ -15,7 +15,7 @@ public class Main {
         dph[1] = 1;
         dph[2] = 3;
 
-        for(int i = 3; i < n; i++){
+        for(int i = 3; i <= n; i++){
             dp[i] = (dp[i - 1] * 2 + dp[i - 2] + dph[i - 1] * 2) % 1000000007;
             dph[i] = (dp[i - 1] + dph[i - 1]) % 1000000007;
         }
