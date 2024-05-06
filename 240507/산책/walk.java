@@ -16,7 +16,7 @@ public class Main {
             hMap.put(type, hMap.getOrDefault(type, 0) + 1);
         }
 
-        int result = 1;
+        long result = 1;
 
         for(int value : hMap.values()){
             result *= (value + 1);
