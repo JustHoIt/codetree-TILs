@@ -30,6 +30,9 @@ public class Main {
         for(int i = 1; i <= m; i++){
             for(int j = 0; j < n; j++){
                 if(coins[j] <= i){
+                    if(dp[i - coins[j]] == INT_MAX){
+                        continue;
+                    }
                     dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
                 }
             }
