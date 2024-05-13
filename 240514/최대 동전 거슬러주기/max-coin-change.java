@@ -36,7 +36,7 @@ public class Main {
             }
         }
 
-        if(dp[m] == INT_MIN){
+        if(dp[m] <= 0){
             System.out.println(-1);
         }else{
             System.out.println(dp[m]);
