@@ -7,7 +7,9 @@ public class Main {
     static int [] dp;
     static int [] coins;
     public static void initialize(){
-        Arrays.fill(dp, INT_MAX);
+        for(int i = 0; i <= m; i++){
+            dp[i] = INT_MAX;
+        }
         dp[0] = 0;
     }
 
@@ -23,11 +25,12 @@ public class Main {
         for(int i = 0; i < n; i++){
             coins[i] = sc.nextInt();
         }
+
         initialize();
 
         for(int i = 1; i <= m; i++){
             for(int j = 0; j < n; j++){
-                if(i >= coins[j]){
+                if(coins[j] <= i){
                     dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
                 }
             }
