@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Main {
     static int INT_MAX = Integer.MAX_VALUE;
@@ -7,7 +6,7 @@ public class Main {
     static int [] dp;
     static int [] coins;
     public static void initialize(){
-        for(int i = 0; i <= m; i++){
+        for(int i = 1; i <= m; i++){
             dp[i] = INT_MAX;
         }
         dp[0] = 0;
