@@ -6,7 +6,7 @@ public class Main {
     static int [] coins;
 
     public static void initialize(){
-        for(int i = 0; i< n; i++){
+        for(int i = 0; i<= m; i++){
             dp[i] = INT_MIN;
         }
         dp[0] = 0;
@@ -36,7 +36,7 @@ public class Main {
             }
         }
 
-        if(dp[m] <= 0){
+        if(dp[m] == INT_MIN){
             System.out.println(-1);
         }else{
             System.out.println(dp[m]);
