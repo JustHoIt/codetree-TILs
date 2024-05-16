@@ -33,6 +33,7 @@ public class Main {
         }
 
         Collections.sort(answer);
+        
         System.out.println(answer.size());
         for(int i : answer){
             System.out.println(i);
@@ -53,9 +54,12 @@ public class Main {
                 int nx = current.x + dx[i];
                 int ny = current.y + dy[i];
 
-                if (nx < 0 || nx >= n || ny < 0 || ny >= n) continue;
-                if (visited[nx][ny] || board[nx][ny] == 0) continue;
-
+                if (nx < 0 || nx >= n || ny < 0 || ny >= n) {
+                    continue;
+                }
+                if (visited[nx][ny] || board[nx][ny] == 0) {
+                    continue;
+                }
                 visited[nx][ny] = true;
                 st.push(new Position(nx, ny));
             }
