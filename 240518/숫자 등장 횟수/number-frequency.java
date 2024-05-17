@@ -9,9 +9,9 @@ public class Main {
         int m = sc.nextInt();
         HashMap<Integer, Integer> map = new HashMap<>();
         int [] arr = new int[n];
+        
         for(int i = 0; i < n; i++){
             arr[i] = sc.nextInt();
-
             if(!map.containsKey(arr[i])){
                 map.put(arr[i], 1);
             }else{
@@ -25,7 +25,7 @@ public class Main {
             if(!map.containsKey(num)){
                 System.out.print(0 + " ");
             }else{
-                System.out.print(map.get(arr[i]) + " ");
+                System.out.print(map.get(num) + " ");
             }
         }
     }
