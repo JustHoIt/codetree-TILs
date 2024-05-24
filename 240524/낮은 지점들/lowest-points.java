@@ -8,15 +8,12 @@ public class Main {
         HashMap<Integer, Integer> map  = new HashMap<>();
 
         int n = sc.nextInt();
-        int cnt = n;
 
         for(int i = 0; i < n; i++){
             int x = sc.nextInt();
             int y = sc.nextInt();
             if(map.containsKey(x)){
-                y = Math.min(map.get(x), y);
-                map.put(x, y);
-                cnt--;
+                map.put(x, Math.min(map.get(x), y));
             }else{
                 map.put(x, y);
             }
