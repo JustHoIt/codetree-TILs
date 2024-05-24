@@ -18,7 +18,7 @@ public class Main {
                 map.put(x, y);
             }
         }
-        int ans = 0;
+        long ans = 0;
         for (int value : map.values()) {
             ans += value;
         }
