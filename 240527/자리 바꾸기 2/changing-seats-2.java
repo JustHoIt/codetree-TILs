@@ -1,54 +1,55 @@
 import java.util.Scanner;
 import java.util.HashSet;
-import java.util.TreeMap;
-import java.util.Map.Entry;
-import java.util.Map;
 
 public class Main {
+    public static final int MAX_K = 100000;
+    public static final int MAX_N = 100000;
+
+    public static int[] a = new int[MAX_K];
+    public static int[] b = new int[MAX_K];
+    public static int[] arr = new int[MAX_N + 1];
+    public static int[] ans = new int[MAX_N + 1];
+    public static HashSet<Integer>[] s = new HashSet[MAX_N + 1];
+
     public static void main(String[] args) {
-        // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
+        
         int n = sc.nextInt();
         int k = sc.nextInt();
-        int [] arr = new int[n + 1];
+        for(int i = 0; i < k; i++) {
+            a[i] = sc.nextInt();
+            b[i] = sc.nextInt();
+        }
 
         for(int i = 1; i <= n; i++){
+            s[i] = new HashSet<Integer>();
+        }
+
+        for(int i = 1; i <= n; i++) {
             arr[i] = i;
+            s[i].add(i);
+            ans[i] = 1;
         }
 
-        Map<Integer, HashSet<Integer>> result = new TreeMap<>();
-        for(int i = 1; i <= n; i++){
-            HashSet<Integer> set = new HashSet<>();
-            set.add(i);
-            result.put(i, set);
-        }
+        for(int cnt = 0; cnt < 3; cnt++) {
+            for(int i = 0; i < k; i++) {
+                int temp = arr[a[i]];
+                arr[a[i]] = arr[b[i]];
+                arr[b[i]] = temp;
 
-        int[][] commands = new int[k][2];
-        for(int i = 0; i < k; i++){
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            commands[i][0] = a;
-            commands[i][1] = b;
-        }
-
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < k; j++){
-                int seatA = commands[j][0];
-                int seatB = commands[j][1];
-
-                int pA = arr[seatA];
-                int pB = arr[seatB];
-
-                result.get(pA).add(seatB);
-                result.get(pB).add(seatA);
-
-                arr[seatA] = pB;
-                arr[seatB] = pA;
+                if(!s[arr[a[i]]].contains(a[i])) {
+                    s[arr[a[i]]].add(a[i]);
+                    ans[arr[a[i]]]++;
+                }
+                
+                if(!s[arr[b[i]]].contains(b[i])) {
+                    s[arr[b[i]]].add(b[i]);
+                    ans[arr[b[i]]]++;
+                }
             }
         }
 
-        for (Map.Entry<Integer, HashSet<Integer>> entry : result.entrySet()) {
-            System.out.println(entry.getValue().size());
+        for(int i = 1; i <= n; i++){
+            System.out.println(ans[i]);}
         }
-    }
 }
