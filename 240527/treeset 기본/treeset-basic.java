@@ -14,14 +14,14 @@ public class Main {
                 s.add(num);
             }else if(str.equals("largest")){
                 if(!s.isEmpty()){
-                    System.out.println(s.first());
+                    System.out.println(s.last());
                 }else{
                     System.out.println("None");
                 }
 
             }else if(str.equals("smallest")){
                 if(!s.isEmpty()){
-                    System.out.println(s.last());
+                    System.out.println(s.first());
                 }else{
                     System.out.println("None");
                 }
