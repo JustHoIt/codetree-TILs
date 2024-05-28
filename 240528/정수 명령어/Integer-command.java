@@ -5,13 +5,12 @@ public class Main {
     public static void main(String[] args) {
         // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
-        TreeSet<Integer> set;
+        TreeSet<Integer> set = new TreeSet<>();
 
         int n = sc.nextInt();
 
         for(int i = 0; i < n; i++){ 
             int k = sc.nextInt();
-            set = new TreeSet<>();
             for(int j = 0;  j < k; j++){
                 String str = sc.next();
                 int num = sc.nextInt();
@@ -32,6 +31,7 @@ public class Main {
             }else{
                 System.out.println(set.last() + " " + set.first());
             }
+            set.clear();
         }
     }
 }
