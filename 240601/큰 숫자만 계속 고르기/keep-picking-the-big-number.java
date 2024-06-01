@@ -9,12 +9,13 @@ public class Main {
         int n = sc.nextInt();
         int m = sc.nextInt();
         for(int i = 0; i < n; i++){
-            q.add(sc.nextInt());
+            int num = sc.nextInt();
+            q.add(-num);
         }
 
         for(int i = 0; i < m; i++){
-            int num = q.poll();
-            q.add(num - 1);
+            int num = -q.poll();
+            q.add(-(num - 1));
         }
 
         System.out.println(-q.peek());
