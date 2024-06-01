@@ -14,10 +14,10 @@ public class Main {
             if(str.equals("push")){
                 //push A : 정수 A를 우선순위 큐에 넣는 연산입니다. - add();
                 int num = sc.nextInt();
-                q.add(num);
+                q.add(-num);
             }else if(str.equals("pop")){
                 //pop : 우선순위 큐에서 최댓값을 제거하고, 그 값을 출력합니다. -peek();, -poll();
-                System.out.println(q.peek());
+                System.out.println(-q.peek());
                 q.poll();
             }else if(str.equals("size")){
                 //size: 우선순위 큐에 들어있는 정수의 개수를 출력합니다. - size();
