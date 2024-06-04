@@ -7,7 +7,15 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        PriorityQueue<Integer> pQ = new PriorityQueue<>();
+        PriorityQueue<Integer> pQ = new PriorityQueue<>((a, b) -> {
+            int absA = Math.abs(a);
+            int absB = Math.abs(b);
+            if(absA == absB){
+                return Integer.compare(a, b);
+            }else{
+                return Integer.compare(absA, absB);
+            }
+        });
 
         for(int i = 0; i < n; i++){
             int num = sc.nextInt();
