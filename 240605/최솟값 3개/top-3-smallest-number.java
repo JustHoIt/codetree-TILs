@@ -14,7 +14,7 @@ public class Main {
 
         for(int i = 0; i < n; i++){
             pQ.add(sc.nextInt());
-            int ans = 1;
+            long ans = 1;
             if(pQ.size() >= 3){
                 qlist = new ArrayList<>(pQ);
                 qlist.sort(Integer::compare);
