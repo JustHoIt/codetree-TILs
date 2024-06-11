@@ -13,7 +13,7 @@ public class Main {
         }
 
         long left = 1;
-        long right = 1000000000 * n;
+        long right = 1_000_000_000L * n;
         long result = right;
 
         while (left <= right) {
