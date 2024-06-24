@@ -15,37 +15,39 @@ public class Main {
         return 0 <= x && x < n && 0 <= y && y < n;
     }
 
-    static int simulate(int x, int y) {
+    static int solution(int x, int y) {
         int elapsedTime = 0;
         int cx = x, cy = y, dir = 0;
         visited[cx][cy][dir] = true;
-        
+
         while (true) {
             int nx = cx + dx[dir], ny = cy + dy[dir];
 
-            if (inRange(nx, ny) && visited[nx][ny][dir]) return -1;
-
-            if (inRange(nx, ny) && grid[nx][ny] == '#') {
-                dir = (dir + 1) % 4;
-            } else if (!inRange(nx, ny)) {
+            if (!inRange(nx, ny)) {
                 elapsedTime++;
                 return elapsedTime;
+            }
+
+            if (visited[nx][ny][dir]) return -1;
+
+            if (grid[nx][ny] == '#') {
+                dir = (dir + 1) % 4;
             } else {
                 int rx = nx + dx[(dir + 3) % 4], ry = ny + dy[(dir + 3) % 4];
+
                 if (inRange(rx, ry) && grid[rx][ry] == '#') {
                     elapsedTime++;
                     cx = nx;
                     cy = ny;
-                    visited[cx][cy][dir] = true;
                 } else {
                     elapsedTime += 2;
-                    visited[nx][ny][dir] = true;
                     cx = rx;
                     cy = ry;
                     dir = (dir + 3) % 4;
-                    visited[cx][cy][dir] = true;
                 }
             }
+
+            visited[cx][cy][dir] = true;
         }
     }
 
@@ -63,7 +65,7 @@ public class Main {
             }
         }
 
-        System.out.println(simulate(x - 1, y - 1));
+        System.out.println(solution(x - 1, y - 1));
         sc.close();
     }
 }
