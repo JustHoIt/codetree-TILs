@@ -1,71 +1,73 @@
 import java.util.Scanner;
 
 public class Main {
-    static final int MAX_N = 100;
-    static final int DIR_NUM = 4;
-
-    static int n, x, y;
-    static char[][] grid = new char[MAX_N][MAX_N];
-    static boolean[][][] visited = new boolean[MAX_N][MAX_N][DIR_NUM];
-
-    static int[] dx = {0, -1, 0, 1};
-    static int[] dy = {1, 0, -1, 0};
-
-    static boolean inRange(int x, int y) {
-        return 0 <= x && x < n && 0 <= y && y < n;
+    public static final int MAX_N = 100;
+    public static final int DIR_NUM = 4;
+    public static int n;
+    public static int currX, currY, currDir;
+    public static char[][] a = new char[MAX_N + 1][MAX_N + 1];
+    public static boolean[][][] visited = new boolean[MAX_N + 1][MAX_N + 1][DIR_NUM];
+    
+    public static int elapsedTime;
+    
+    public static boolean inRange(int x, int y) {
+        return 1 <= x && x <= n && 1 <= y && y <= n;
     }
 
-    static int solution(int x, int y) {
-        int elapsedTime = 0;
-        int cx = x, cy = y, dir = 0;
-        visited[cx][cy][dir] = true;
-
-        while (true) {
-            int nx = cx + dx[dir], ny = cy + dy[dir];
-
-            if (!inRange(nx, ny)) {
+    public static boolean wallExist(int x, int y) {
+        return inRange(x, y) && a[x][y] == '#';
+    }
+    
+    public static void simulate() {
+        if(visited[currX][currY][currDir]) {
+            System.out.print(-1);
+            System.exit(0);
+        }
+        visited[currX][currY][currDir] = true;
+    
+        int[] dx = new int[]{0, 1, 0, -1};
+        int[] dy = new int[]{1, 0, -1, 0};
+    
+        int nextX = currX + dx[currDir];
+        int nextY = currY + dy[currDir];
+        if(wallExist(nextX, nextY)){
+            currDir = (currDir - 1 + 4) % 4;
+        } else if(!inRange(nextX, nextY)) {
+            currX = nextX; currY = nextY;
+            elapsedTime++;
+        } else {
+            int rx = nextX + dx[(currDir + 1) % 4];
+            int ry = nextY + dy[(currDir + 1) % 4];
+            if(wallExist(rx, ry)) {
+                currX = nextX; currY = nextY;
                 elapsedTime++;
-                return elapsedTime;
             }
-
-            if (visited[nx][ny][dir]) return -1;
-
-            if (grid[nx][ny] == '#') {
-                dir = (dir + 1) % 4;
-            } else {
-                int rx = nx + dx[(dir + 3) % 4], ry = ny + dy[(dir + 3) % 4];
-
-                if (inRange(rx, ry) && grid[rx][ry] == '#') {
-                    elapsedTime++;
-                    cx = nx;
-                    cy = ny;
-                } else {
-                    elapsedTime += 2;
-                    cx = rx;
-                    cy = ry;
-                    dir = (dir + 3) % 4;
-                }
+            else {
+                currX = rx; currY = ry;
+                currDir = (currDir + 1) % 4;
+                elapsedTime += 2;
             }
-
-            visited[cx][cy][dir] = true;
         }
     }
 
     public static void main(String[] args) {
+        // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
-        x = sc.nextInt();
-        y = sc.nextInt();
-        sc.nextLine();
+        currX = sc.nextInt();
+        currY = sc.nextInt();
+        currDir = 0;
 
-        for (int i = 0; i < n; i++) {
-            String line = sc.nextLine();
-            for (int j = 0; j < n; j++) {
-                grid[i][j] = line.charAt(j);
+        for(int i = 1; i <= n; i++) {
+            String str = sc.next();
+            for(int j = 1; j <= n; j++){
+                a[i][j] = str.charAt(j - 1);
             }
         }
-
-        System.out.println(solution(x - 1, y - 1));
-        sc.close();
+        
+        do {
+            simulate();
+        } while(inRange(currX, currY)); 
+        System.out.print(elapsedTime);
     }
 }
