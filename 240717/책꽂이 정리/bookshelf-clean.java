@@ -1,10 +1,9 @@
 import java.util.Scanner;
 
-// 연결 리스트의 노드
 class Node {
 	int data;
 	Node prev, next;
-
+ 
 	public Node(int data) {
 		this.data = data;
 		this.prev = this.next = null;
@@ -17,29 +16,27 @@ public class Main {
 	public static Node[] nodes = new Node[MAX_N + 1];
 	public static Node[] heads = new Node[MAX_K + 1];
 	public static Node[] tails = new Node[MAX_K + 1];
-
 	public static boolean empty(int i) {
 		return null == heads[i];
 	}
-
 	public static void connect(Node u, Node v) {
 		u.next = v;
 		v.prev = u;
 	}
-
 	public static Node pop_front(int i) {
 		Node ret = heads[i];
 
 		if (null != ret) {
 			heads[i] = ret.next;
+
 			ret.next = null;
 
-			if (null != heads[i]) {
+			if (null != heads[i])
 				heads[i].prev = null;
-            } else {
-                tails[i] = null;
-            }
+			else
+				tails[i] = null;
 		}
+
 		return ret;
 	}
 
@@ -48,14 +45,15 @@ public class Main {
 
 		if (null != ret) {
 			tails[i] = ret.prev;
+
 			ret.prev = null;
 
-			if (null != tails[i]) {
+			if (null != tails[i])
 				tails[i].next = null;
-            } else {
-                heads[i] = null;
-            }	
+			else
+				heads[i] = null;
 		}
+
 		return ret;
 	}
 
@@ -76,12 +74,10 @@ public class Main {
 			tails[i] = singleton;
 		}
 	}
-
 	public static void move_all_front(int i, int j) {
-		// 무의미한 연산에 대한 예외처리
-		if (i == j || empty(i)){
-            return;
-        }
+		if (i == j || empty(i))
+			return;
+
 		if (empty(j)) {
 			heads[j] = heads[i];
 			tails[j] = tails[i];
@@ -91,11 +87,9 @@ public class Main {
 		}
 		heads[i] = tails[i] = null;
 	}
-
 	public static void move_all_back(int i, int j) {
-		if (i == j || empty(i)){
+		if (i == j || empty(i))
 			return;
-        }
 
 		if (empty(j)) {
 			heads[j] = heads[i];
@@ -112,16 +106,13 @@ public class Main {
 
 		int n = sc.nextInt();
 		int k = sc.nextInt();
-
-		for (int i = 1; i <= n; i++) { 
+		for (int i = 1; i <= n; i++)
 			nodes[i] = new Node(i);
-        }
-		for (int i = 1; i < n; i++) {
-			connect(nodes[i], nodes[i+1]);    
-        }
-		for (int i = 1; i <= k; i++) {
+
+		for (int i = 1; i < n; i++)
+			connect(nodes[i], nodes[i+1]);
+		for (int i = 1; i <= k; i++)
 			heads[i] = tails[i] = null;
-        }
 		heads[1] = nodes[1];
 		tails[1] = nodes[n];
 
@@ -134,14 +125,12 @@ public class Main {
 
 			if (1 == type) {
 				Node node = pop_front(i);
-				if (null != node) {
+				if (null != node)
 					push_back(j, node);
-                }
 			} else if (2 == type) {
 				Node node = pop_back(i);
-				if (null != node){
+				if (null != node)
 					push_front(j, node);
-                }
 			} else if (3 == type) {
 				move_all_front(i, j);
 			} else if (4 == type) {
