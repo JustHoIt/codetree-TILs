@@ -4,7 +4,6 @@ import java.util.HashMap;
 public class Main {
     public static final int MAX_N = 100000;
     
-    // 변수 선언
     public static int n;
     public static String word;
     public static HashMap<Character, Integer> countArray = new HashMap<>();
