@@ -16,15 +16,14 @@ class Pair implements Comparable<Pair> {
 }
 
 public class Main {    
-    // 여기에 코드를 작성해주세요.
     public static int n;
     public static ArrayList<Pair> nums = new ArrayList<>();
     
     public static int ans;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {   
+        // 여기에 코드를 작성해주세요.
         Scanner sc = new Scanner(System.in);
-        // 입력:
         n = sc.nextInt();
         for(int i = 0; i < n; i++) {
             int x = sc.nextInt();
