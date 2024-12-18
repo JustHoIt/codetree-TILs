@@ -7,7 +7,7 @@ public class Main {
     public static int[] a = new int[MAX_N + 1];
     public static ArrayList<Integer>[] edges = new ArrayList[MAX_N + 1];
     public static boolean[] visited = new boolean[MAX_N + 1];
-    public static int[] dp = new int[MAX_N + 1]; /
+    public static int[] dp = new int[MAX_N + 1];
     public static int ans;
     public static void dfs(int x) {
         dp[x] = a[x];
