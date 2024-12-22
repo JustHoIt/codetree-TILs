@@ -46,7 +46,7 @@ public class Main {
             edges[x].add(y);
             edges[y].add(x);
         }
-.
+        
         for(int i = 1; i <= n; i++) {
             a[i] = sc.nextInt();
         }
