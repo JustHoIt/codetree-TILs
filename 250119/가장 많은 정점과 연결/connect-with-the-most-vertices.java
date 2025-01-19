@@ -14,8 +14,10 @@ public class Main {
     
     public static int find(int x) {
         if(uf[x] == x) {
-        return uf[x] = find(uf[x]);
+            return x;
         }
+
+        return uf[x] = find(uf[x]);
     }
     
     public static void union(int x, int y) {
@@ -62,6 +64,7 @@ public class Main {
         Collections.sort(costList);
 
         int ans = 0;
+
         for(int i = 1; i < costList.size(); i++) {
             ans += costList.get(0) + costList.get(i);
         }
